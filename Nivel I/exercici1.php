@@ -33,5 +33,4 @@ class Empleat {
 $empleat1 = new Empleat("Jordi", 7000);
 
 $empleat1->mostrarInformacion();
-
 ?>
