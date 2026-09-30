@@ -6,8 +6,8 @@ require_once 'Triangle.php';
 
 //creamos objetos 
 
-$rectangle = new Rectangle (15, 4);
-$triangle = new Triangle (19, 6);
+$rectangle = new Rectangle (8, 7);
+$triangle = new Triangle (10, 9);
 
 //calculamos las areas usando la funciona calcularArea que hemos creado en Rectangle.php y Triangle.php, y las guardamos en $areaRectangle y $areaTriangle
 
