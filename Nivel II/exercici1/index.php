@@ -28,5 +28,9 @@ echo "Dau 3: " . $dau3->mostrarFigura() . "\n";
 echo "Dau 4: " . $dau4->mostrarFigura() . "\n";
 echo "Dau 5: " . $dau5->mostrarFigura() . "\n";
 
+//mostramos numero total tiradas de todos los dados
+//porque mostrarTiradas lo hemos declarado como estatic, es decir, pertenece a la clase y no a un dado concreto, por eso usamos PokerDice::
+echo "Total de tiradas: " . PokerDice::mostrarTiradas();
+
 
 ?>
