@@ -1,36 +1,23 @@
 <?php
 
-//para utilizar clase de poker dice, que esta en ese archivo
 require_once 'PokerDice.php';
 
-//creamos 5 dados,no necesitamos constructor porque PokerDice no recibe parametros
+define ('QUATITAT_DAUS', 5);
+$daus = [];
+
+for ($i = 0; $i < QUATITAT_DAUS; $i++){
+    $daus[]= new PokerDice();
+}
 
 
-$dau1 = new PokerDice();
-$dau2 = new PokerDice();
-$dau3 = new PokerDice();
-$dau4 = new PokerDice();
-$dau5 = new PokerDice();
+foreach ($daus as $dau){
+    $dau->tirarDado();
+}
 
-//tiramos dado. dado ejectura el metodo tirarDado()
+foreach($daus as $i => $dau){
+    echo "Dau " . ($i +1 ) .  ": " . $dau->mostrarFigura() . "\n";
+}
 
-$dau1->tirarDado(); //(dado dau, ejecuta la funcion tirardado, dentro de ese metodo ocurre this-figura=figuras[rand0,5]
-$dau2->tirarDado();
-$dau3->tirarDado();
-$dau4->tirarDado();
-$dau5->tirarDado();
-
-//mostramos resultado
-//cada dado guarda su propio resultado dentro de su figura
-echo "Dau 1: " . $dau1->mostrarFigura() . "\n";
-echo "Dau 2: " . $dau2->mostrarFigura() . "\n";
-echo "Dau 3: " . $dau3->mostrarFigura() . "\n";
-echo "Dau 4: " . $dau4->mostrarFigura() . "\n";
-echo "Dau 5: " . $dau5->mostrarFigura() . "\n";
-
-//mostramos numero total tiradas de todos los dados
-//porque mostrarTiradas lo hemos declarado como estatic, es decir, pertenece a la clase y no a un dado concreto, por eso usamos PokerDice::
 echo "Total de tiradas: " . PokerDice::mostrarTiradas();
-
 
 ?>
