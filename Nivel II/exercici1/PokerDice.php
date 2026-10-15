@@ -3,22 +3,19 @@
 class PokerDice
 {
 
-    private string $figura; //mejor llamar algo mas representativo (resultadodado)
+    private string $resultadoDado; 
     private static int $tiradas = 0;
- 
+    private static array $figuras = ["As", "K", "Q", "J", "7", "8"]; 
 
-    public function tirarDado(): void //basta con "tirar"
+    public function tirar(): void 
     {
-
-
         self::$tiradas++;
-        $figuras = ["As", "K", "Q", "J", "7", "8"]; //deberia ser una constante 
-        $this->figura = $figuras[rand(0, 5)];
+        $this->resultadoDado = self::$figuras[rand(0, 5)];
     }
 
-    public function mostrarFigura(): string
+    public function mostrarResultado(): string
     {
-        return $this->figura;
+        return $this->resultadoDado;
     }
 
     public static function mostrarTiradas(): int
