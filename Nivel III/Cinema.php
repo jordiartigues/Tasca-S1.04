@@ -1,29 +1,42 @@
 <?php
 
-class Cinema {
-
-public string $name; 
-public string $location;
-public array $movies = [];
-
-public function __construct(string $name, string $location)
+class Cinema
 {
-    $this->name = $name;
-    $this->location = $location;
-}
 
-public function addMovie(Movie $movie): void{
+    public string $name;
+    public string $location;
+    public array $movies = [];
 
-    $this->movies[] = $movie;
+    public function __construct(string $name, string $location)
+    {
+        $this->name = $name;
+        $this->location = $location;
+    }
 
-}
+    public function addMovie(Movie $movie): void
+    {
 
-public function getName (): string{
-    return $this->name;
-}
+        $this->movies[] = $movie;
+    }
 
-public function getLocation (): string{
-    return $this->location;
-}
+    public function getName(): string
+    {
+        return $this->name;
+    }
 
+    public function getLocation(): string
+    {
+        return $this->location;
+    }
+
+    public function getMoviesByDirector(string $director): array
+    {
+        $directorMovies = [];
+        foreach ($this->movies as $movie) {
+            if ($movie->getDirector() === $director) {
+                $directorMovies[] = $movie;
+            }
+        }
+        return $directorMovies;
+    }
 }
